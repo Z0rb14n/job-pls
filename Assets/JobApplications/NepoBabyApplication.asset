@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78886c1cc534f47a3a12cf2d211643fe, type: 3}
   m_Name: NepoBabyApplication
   m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 5436d442e13fa48708ce914cf35472ba, type: 3}
+  interviewStory: {fileID: 4900000, guid: 61914884d269544d2a7c3ee66a7a8a3e, type: 3}
   id: nepobaby
   personName: CEO's Son
   resume: "<size=200%><b>CEO's Son</b></size> <line-indent=30>\n\u25CF has a lot
     of money\n</line-indent>"
-  state: 0
+  voice: {fileID: 8300000, guid: 9fdf604c7188942a5b00c268a610f4ee, type: 3}

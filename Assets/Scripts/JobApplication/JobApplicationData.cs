@@ -10,11 +10,16 @@ namespace JobApplication
     public class JobApplicationData : ScriptableObject
     {
         public event Action OnModify;
-        
+
+        public Sprite image;
+
+        public TextAsset interviewStory;
         public string id;
         public string personName;
         [TextArea(minLines:3, maxLines:20)]
         public string resume;
+
+        public AudioClip voice;
         
         [NonSerialized]
         public JobApplicationState ApplicationState;
