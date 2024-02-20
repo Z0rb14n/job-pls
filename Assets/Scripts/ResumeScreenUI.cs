@@ -17,7 +17,7 @@ public class ResumeScreenUI : MonoBehaviour
     public void OnDiscard()
     {
         Debug.Log("get f--ked bozo");
-        _jobData.state = JobApplicationState.Rejected;
+        _jobData.ApplicationState = JobApplicationState.Rejected;
         _jobData.SignalModified();
         Destroy(gameObject);
     }
@@ -25,7 +25,7 @@ public class ResumeScreenUI : MonoBehaviour
     public void OnSendToNext()
     {
         Debug.Log("ok fine");
-        _jobData.state = JobApplicationState.PreOA;
+        _jobData.ApplicationState = JobApplicationState.PreOA;
         _jobData.SignalModified();
         Destroy(gameObject);
     }

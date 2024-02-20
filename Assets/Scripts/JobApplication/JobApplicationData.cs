@@ -15,8 +15,14 @@ namespace JobApplication
         public string personName;
         [TextArea(minLines:3, maxLines:20)]
         public string resume;
+        
+        [NonSerialized]
+        public JobApplicationState ApplicationState;
 
-        public JobApplicationState state;
+        private void Awake()
+        {
+            ApplicationState = JobApplicationState.PreOA;
+        }
 
         public void SignalModified() => OnModify?.Invoke();
     }

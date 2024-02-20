@@ -19,7 +19,7 @@ namespace JobApplication
 
         private void JobDataOnOnModify()
         {
-            displayedText.text = $"[{Enum.GetName(typeof(JobApplicationState), jobData.state)}] {jobData.personName}";
+            displayedText.text = $"[{Enum.GetName(typeof(JobApplicationState), jobData.ApplicationState)}] {jobData.personName}";
         }
 
         public void OnButtonPressed()
