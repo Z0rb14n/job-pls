@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Review Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -305,10 +305,10 @@ RectTransform:
   m_Father: {fileID: 5490140291597261087}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.75, y: 0.5}
+  m_AnchoredPosition: {x: 12.5, y: 12.5}
+  m_SizeDelta: {x: -25, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5490140290266562151
 CanvasRenderer:
@@ -391,7 +391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5490140290266562144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5861328885344878522}
+        m_TargetAssemblyTypeName: JobApplication.JobApplicationButton, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5490140291597261080
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +415,7 @@ GameObject:
   - component: {fileID: 5490140291597261087}
   - component: {fileID: 5490140291597261085}
   - component: {fileID: 5490140291597261086}
+  - component: {fileID: 5861328885344878522}
   m_Layer: 5
   m_Name: Application
   m_TagString: Untagged
@@ -470,3 +483,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5861328885344878522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490140291597261080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac462e779a44bf098d8e886ae19351e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobData: {fileID: 0}
+  displayedText: {fileID: 5490140290154007822}
+  resumeScreenUI: {fileID: 4233590097957711782, guid: 9cc7a50a120924ed994512ab2d47f014, type: 3}
