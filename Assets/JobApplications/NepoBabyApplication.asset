@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78886c1cc534f47a3a12cf2d211643fe, type: 3}
+  m_Name: NepoBabyApplication
+  m_EditorClassIdentifier: 
+  id: nepobaby
+  personName: CEO's Son
+  resume: "<size=200%><b>CEO's Son</b></size> <line-indent=30>\n\u25CF has a lot
+    of money\n</line-indent>"
+  state: 0
