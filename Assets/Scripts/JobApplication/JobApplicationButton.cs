@@ -40,6 +40,10 @@ namespace JobApplication
                     break;
             }
             button.interactable = jobData.ApplicationState is not (JobApplicationState.Rejected or JobApplicationState.PreOA);
+            if (jobData.ApplicationState == JobApplicationState.Rejected)
+            {
+                Destroy(button.gameObject);
+            }
         }
 
         public void OnButtonPressed()
