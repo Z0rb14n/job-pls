@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Ink;
 using Ink.Runtime;
 using UnityEngine;
@@ -32,6 +33,8 @@ namespace Interview
         public Dictionary<string, string> CurrentTags { get; private set; }
 
         public bool CanContinue => _story.canContinue;
+
+        public event Action<string, string> StoryAction;
 
         public void Initialize(TextAsset jsonAsset)
         {
@@ -81,15 +84,6 @@ namespace Interview
             }
         }
 
-        /// <summary>
-        /// Jumps to the knot or stitch with the provided Ink address. 
-        /// </summary>
-        /// <param name="inkAddress">An Ink address: e.g. "knot_name", "knot_name.stitch_name"</param>
-        public void JumpToAddress(string inkAddress)
-        {
-            _story.ChoosePathString(inkAddress);
-        }
-
         private void UpdateCurrentLine(string line)
         {
             CurrentLine = line;
@@ -105,45 +99,13 @@ namespace Interview
                 CurrentTags.Add(key, content);
             }
         }
-
-        /// <summary>
-        /// Sets the value of the given story variable.
-        /// </summary>
-        /// <param name="varName">Name of story variable to set value of.</param>
-        /// <param name="newValue">New value for the story variable.</param>
-        public void SetStoryVariable(string varName, bool newValue)
+        
+        public void RunTriggers()
         {
-            _story.variablesState[varName] = newValue;
-        }
+            if (!CurrentTags.TryGetValue("trigger", out string actionId)) return;
 
-        /// <summary>
-        /// Sets the value of the given story variable.
-        /// </summary>
-        /// <param name="varName">Name of story variable to set value of.</param>
-        /// <param name="newValue">New value for the story variable.</param>
-        public void SetStoryVariable(string varName, int newValue)
-        {
-            _story.variablesState[varName] = newValue;
-        }
-
-        /// <summary>
-        /// Sets the value of the given story variable.
-        /// </summary>
-        /// <param name="varName">Name of story variable to set value of.</param>
-        /// <param name="newValue">New value for the story variable.</param>
-        public void SetStoryVariable(string varName, string newValue)
-        {
-            _story.variablesState[varName] = newValue;
-        }
-
-        /// <summary>
-        /// Gets the value of the given story variable.
-        /// </summary>
-        /// <param name="varName">Name of the variable we are looking for.</param>
-        /// <returns>The value.</returns>
-        public object GetVariableValue(string varName)
-        {
-            return _story.variablesState[varName];
+            CurrentTags.TryGetValue("data", out string actionData);
+            StoryAction?.Invoke(actionId, actionData);
         }
     }
 }

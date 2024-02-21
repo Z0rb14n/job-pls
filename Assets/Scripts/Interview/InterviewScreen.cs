@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using JobApplication;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Util;
 
 namespace Interview
 {
@@ -14,13 +16,41 @@ namespace Interview
         [Tooltip("Array of buttons for choices, in the same order as the hierarchy.")]
         public Button[] buttons;
         public TextMeshProUGUI dialogueText;
-        public Image intervieweeSprite;
+        public Sprite interviewerSprite;
+        public RectTransform peopleSprites;
+        public GameObject personSpritePrefab;
         
         private JobApplicationData _interviewee;
         private BranchingStory _story;
         
+        public DialogueTriggerActions DialogueActions { get; set; }
+
+        public Sprite[] DisplayedPeople
+        {
+            get
+            {
+                Sprite[] array = new Sprite[peopleSprites.childCount];
+                for (int i = 0; i < array.Length; i++)
+                {
+                    array[i] = peopleSprites.GetChild(i).GetComponent<Image>()?.sprite;
+                }
+
+                return array;
+            }
+            set
+            {
+                value ??= Array.Empty<Sprite>();
+                ObjectUtil.EnsureLength(peopleSprites, value.Length, personSpritePrefab);
+                for (int i = 0; i < value.Length; i++)
+                {
+                    peopleSprites.GetChild(i).GetComponent<Image>().sprite = value[i];
+                }
+            }
+        }
+        
         private void Awake()
         {
+            DialogueActions = GetComponent<DialogueTriggerActions>();
             for (int i = 0; i < buttons.Length; i++)
             {
                 Button b = buttons[i];
@@ -47,6 +77,7 @@ namespace Interview
             while (_story.CanContinue)
             {
                 _story.Continue();
+                _story.RunTriggers();
                 if (_story.CurrentTags.ContainsKey("end"))
                 {
                     // Stop this coroutine and hide the dialogue screen - ensures this coroutine won't be called again
@@ -59,7 +90,7 @@ namespace Interview
                 {
                     DialogueUtils.ExtractSpokenLine(line, out string text, out string speaker);
     
-                    if (speaker != null)
+                    if (speaker != null && _interviewee)
                     {
                         AudioSource.PlayClipAtPoint(_interviewee.voice, Vector3.zero);
                     }
@@ -122,9 +153,10 @@ namespace Interview
         public void Show(JobApplicationData interviewee)
         {
             _interviewee = interviewee;
-            intervieweeSprite.sprite = _interviewee.image;
+            DisplayedPeople = new[] { interviewerSprite, _interviewee.image };
 
             _story = new BranchingStory();
+            if (DialogueActions) _story.StoryAction += DialogueActions.ExecuteAction;
             _story.Initialize(interviewee.interviewStory);
             _story.Continue();
             int index = _story.CurrentChoices.IndexOf(
@@ -134,13 +166,28 @@ namespace Interview
             StartCoroutine(AdvanceDialogueAndShow());
         }
 
+        public void ShowCutscene(TextAsset asset, int cutsceneId, Sprite[] sprites)
+        {
+            DisplayedPeople = sprites;
+
+            _story = new BranchingStory();
+            if (DialogueActions) _story.StoryAction += DialogueActions.ExecuteAction;
+            _story.Initialize(asset);
+            _story.Continue();
+            _story.MakeChoice(cutsceneId);
+            StartCoroutine(AdvanceDialogueAndShow());
+        }
+
         /// <summary>
         /// Closes the interview screen by destroying the game object.
         /// </summary>
         public void Hide()
         {
-            _interviewee.ApplicationState = JobApplicationState.NeedDecision;
-            _interviewee.SignalModified();
+            if (_interviewee)
+            {
+                _interviewee.ApplicationState = JobApplicationState.NeedDecision;
+                _interviewee.SignalModified();   
+            }
             Destroy(gameObject);
         }
     }

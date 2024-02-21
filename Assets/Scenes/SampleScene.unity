@@ -123,6 +123,134 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &34369647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 34369648}
+  - component: {fileID: 34369649}
+  - component: {fileID: 34369650}
+  - component: {fileID: 34369651}
+  m_Layer: 0
+  m_Name: CutsceneRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &34369648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34369647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &34369649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34369647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c719bce55c354ec1a0919298504b09ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 4900000, guid: 87e637ff01e4640018ecbbcc07b0537d, type: 3}
+  cutsceneId: 0
+  sprites:
+  - {fileID: 21300000, guid: eb78e4ab66dae46129708c8941b3f8d5, type: 3}
+  - {fileID: 21300000, guid: 5436d442e13fa48708ce914cf35472ba, type: 3}
+  - {fileID: 21300000, guid: 95465eefdcc2345edbc88fc558e289e6, type: 3}
+  interviewUI: {fileID: 8685370724868079483, guid: 99aae9c1ec8bc475e96cb6ba1e904305, type: 3}
+--- !u!114 &34369650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34369647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f23ddc2c94440a9f99ca4a55020e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - id: ManagerJoin
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 34369651}
+          m_TargetAssemblyTypeName: Cutscene.StartCutsceneActions, Assembly-CSharp
+          m_MethodName: ManagerJoin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: ManagerLeave
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 34369651}
+          m_TargetAssemblyTypeName: Cutscene.StartCutsceneActions, Assembly-CSharp
+          m_MethodName: ManagerLeave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: SeniorLeave
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 34369651}
+          m_TargetAssemblyTypeName: Cutscene.StartCutsceneActions, Assembly-CSharp
+          m_MethodName: SeniorLeave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &34369651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34369647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17e458be8b54d158b831fbd969af8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seniorSprite: {fileID: 21300000, guid: 5436d442e13fa48708ce914cf35472ba, type: 3}
+  managerSprite: {fileID: 21300000, guid: 95465eefdcc2345edbc88fc558e289e6, type: 3}
 --- !u!1 &91287515
 GameObject:
   m_ObjectHideFlags: 0
