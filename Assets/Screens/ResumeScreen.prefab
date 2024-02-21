@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6541783379719313437}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1144099081330191137}
+        m_TargetAssemblyTypeName: DefaultNamespace.ResumeScreenUI, Assembly-CSharp
+        m_MethodName: OnDiscard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &725785792019049944
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +336,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<size=200%><b>fake name</b></size> <line-indent=30>\n\u25CF lol\n\u25CF
-    lol\n</line-indent>\n"
+    lol\n</line-indent>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -484,6 +496,7 @@ GameObject:
   - component: {fileID: 4233590097957711787}
   - component: {fileID: 4233590097957711780}
   - component: {fileID: 4233590097957711781}
+  - component: {fileID: 1144099081330191137}
   m_Layer: 5
   m_Name: ResumeScreen
   m_TagString: Untagged
@@ -573,6 +586,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1144099081330191137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233590097957711782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd70b4574c545d08110a58cd1752b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 4056059310145634753}
 --- !u!1 &5919167264928463954
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +720,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 721367737671565367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1144099081330191137}
+        m_TargetAssemblyTypeName: DefaultNamespace.ResumeScreenUI, Assembly-CSharp
+        m_MethodName: OnSendToNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6127292836297201490
 GameObject:
   m_ObjectHideFlags: 0
