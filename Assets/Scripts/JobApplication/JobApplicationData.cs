@@ -20,13 +20,15 @@ namespace JobApplication
         public string resume;
 
         public AudioClip voice;
+
+        public JobApplicationState testStartState;
         
         [NonSerialized]
         public JobApplicationState ApplicationState;
 
         private void Awake()
         {
-            ApplicationState = JobApplicationState.PreOA;
+            ApplicationState = JobApplicationState.Unscreened;
         }
 
         public void SignalModified() => OnModify?.Invoke();

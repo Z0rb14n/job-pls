@@ -15,8 +15,6 @@ namespace Interview
         public Button[] buttons;
         public TextMeshProUGUI dialogueText;
         public Image intervieweeSprite;
-
-        public JobApplicationData test;
         
         private JobApplicationData _interviewee;
         private BranchingStory _story;
@@ -35,8 +33,6 @@ namespace Interview
                 });
                 b.gameObject.SetActive(false);
             }
-            
-            Show(test);
         }
         
         /// <summary>
@@ -143,6 +139,8 @@ namespace Interview
         /// </summary>
         public void Hide()
         {
+            _interviewee.ApplicationState = JobApplicationState.NeedDecision;
+            _interviewee.SignalModified();
             Destroy(gameObject);
         }
     }
