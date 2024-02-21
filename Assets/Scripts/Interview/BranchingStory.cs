@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ink;
 using Ink.Runtime;
 using UnityEngine;
@@ -69,6 +70,14 @@ namespace Interview
         {
             UpdateCurrentLine(_story.ContinueMaximally());
             UpdateCurrentTags();
+        }
+
+        public void MakeChoice(string choiceName)
+        {
+            int index = _story.currentChoices.IndexOf(
+                _story.currentChoices.FirstOrDefault(choice => !choice.text.StartsWith("_") && choice.text.Contains(choiceName)));
+            if (index != -1) MakeChoice(index);
+            else Debug.LogWarning($"Can't find choice: {choiceName}");
         }
 
         /// <summary>

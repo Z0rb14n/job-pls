@@ -7,7 +7,7 @@ namespace Cutscene
     public class CutsceneRunner : MonoBehaviour
     {
         [SerializeField] private TextAsset dialogue;
-        [SerializeField] private int cutsceneId;
+        [SerializeField] private string cutsceneId;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private GameObject interviewUI;
         

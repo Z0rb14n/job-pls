@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c719bce55c354ec1a0919298504b09ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 4900000, guid: 87e637ff01e4640018ecbbcc07b0537d, type: 3}
-  cutsceneId: 0
+  dialogue: {fileID: 4900000, guid: 61914884d269544d2a7c3ee66a7a8a3e, type: 3}
+  cutsceneId: game_start_cutscene
   sprites:
   - {fileID: 21300000, guid: eb78e4ab66dae46129708c8941b3f8d5, type: 3}
   - {fileID: 21300000, guid: 5436d442e13fa48708ce914cf35472ba, type: 3}

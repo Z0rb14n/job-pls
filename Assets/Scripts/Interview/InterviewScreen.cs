@@ -159,14 +159,12 @@ namespace Interview
             if (DialogueActions) _story.StoryAction += DialogueActions.ExecuteAction;
             _story.Initialize(interviewee.interviewStory);
             _story.Continue();
-            int index = _story.CurrentChoices.IndexOf(
-                _story.CurrentChoices.FirstOrDefault(choice => !choice.text.StartsWith("_") && choice.text.Contains(interviewee.id)));
-            if (index != -1) _story.MakeChoice(index);
+            _story.MakeChoice(interviewee.id);
 
             StartCoroutine(AdvanceDialogueAndShow());
         }
 
-        public void ShowCutscene(TextAsset asset, int cutsceneId, Sprite[] sprites)
+        public void ShowCutscene(TextAsset asset, string cutsceneId, Sprite[] sprites)
         {
             DisplayedPeople = sprites;
 
