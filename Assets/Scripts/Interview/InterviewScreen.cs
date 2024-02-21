@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Ink.Runtime;
 using JobApplication;
 using TMPro;
@@ -15,14 +14,15 @@ namespace Interview
     {
         [Tooltip("Array of buttons for choices, in the same order as the hierarchy.")]
         public Button[] buttons;
+
         public TextMeshProUGUI dialogueText;
         public Sprite interviewerSprite;
         public RectTransform peopleSprites;
         public GameObject personSpritePrefab;
-        
+
         private JobApplicationData _interviewee;
         private BranchingStory _story;
-        
+
         public DialogueTriggerActions DialogueActions { get; set; }
 
         public Sprite[] DisplayedPeople
@@ -47,7 +47,7 @@ namespace Interview
                 }
             }
         }
-        
+
         private void Awake()
         {
             DialogueActions = GetComponent<DialogueTriggerActions>();
@@ -64,7 +64,7 @@ namespace Interview
                 b.gameObject.SetActive(false);
             }
         }
-        
+
         /// <summary>
         /// Coroutine that advances the dialogue line by line, skipping empty lines, and types out each line.
         /// After the last line of dialogue is shown, shows the choices upon a key press.
@@ -89,20 +89,20 @@ namespace Interview
                 if (!string.IsNullOrWhiteSpace(line))
                 {
                     DialogueUtils.ExtractSpokenLine(line, out string text, out string speaker);
-    
+
                     if (speaker != null && _interviewee)
                     {
                         AudioSource.PlayClipAtPoint(_interviewee.voice, Vector3.zero);
                     }
 
                     dialogueText.text = line;
-    
+
                     // Wait for next key press to advance dialogue.
                     while (!Input.GetKeyDown(KeyCode.Space))
                     {
                         yield return null;
                     }
-                    
+
                     if (_story.CanContinue) yield return null;
                 }
             }
@@ -145,7 +145,7 @@ namespace Interview
                 }
             }
         }
-        
+
         /// <summary>
         /// Changes the character sprite to the given interviewee.
         /// </summary>
@@ -184,8 +184,9 @@ namespace Interview
             if (_interviewee)
             {
                 _interviewee.ApplicationState = JobApplicationState.NeedDecision;
-                _interviewee.SignalModified();   
+                _interviewee.SignalModified();
             }
+
             Destroy(gameObject);
         }
     }
