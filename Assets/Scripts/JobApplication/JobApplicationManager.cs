@@ -7,6 +7,7 @@ namespace JobApplication
         private static JobApplicationManager _instance;
 
         public JobApplicationData[] jobs;
+        [SerializeField] private TimeDisplay timeDisplay;
 
         public static JobApplicationManager Instance
         {
@@ -20,6 +21,11 @@ namespace JobApplication
         private void Awake()
         {
             _instance = this;
+        }
+
+        public void OnNextDay()
+        {
+            timeDisplay.ResetTime();
         }
     }
 }

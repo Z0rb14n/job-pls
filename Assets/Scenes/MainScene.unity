@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 302085095}
   - component: {fileID: 302085097}
   - component: {fileID: 302085096}
+  - component: {fileID: 302085098}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -681,6 +682,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302085094}
   m_CullTransparentMesh: 1
+--- !u!114 &302085098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302085094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c29350741a6472092f6169bc1d09a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 1519706097}
+  timeBeforeUpdate: 30
+  minuteUpdate: 30
 --- !u!1 &418112150
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +730,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d615eba2b0be4f5db0f5275f424d7b0, type: 2}
   - {fileID: 11400000, guid: d7967fcf7c3a140159247706637754bf, type: 2}
   - {fileID: 11400000, guid: 32a57ca6e586e4ee1aac4b8f19ca4d37, type: 2}
+  timeDisplay: {fileID: 302085098}
 --- !u!4 &418112152
 Transform:
   m_ObjectHideFlags: 0
@@ -971,7 +988,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 642707208}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 418112151}
+        m_TargetAssemblyTypeName: JobApplication.JobApplicationManager, Assembly-CSharp
+        m_MethodName: OnNextDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &845628039
 GameObject:
   m_ObjectHideFlags: 0
