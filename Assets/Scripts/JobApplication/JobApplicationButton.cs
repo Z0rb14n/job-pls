@@ -8,26 +8,34 @@ namespace JobApplication
 {
     public class JobApplicationButton : MonoBehaviour
     {
-        public JobApplicationData jobData;
-
         [SerializeField] private TextMeshProUGUI displayedText;
         [SerializeField] private Button button;
         [SerializeField] private TextMeshProUGUI buttonText;
         [SerializeField] private GameObject resumeScreenUI;
         [SerializeField] private GameObject interviewUI;
+        private JobApplicationData _jobData;
 
-        private void Awake()
+        public JobApplicationData JobData
         {
-            jobData.ApplicationState = jobData.testStartState; // for testing purposes REMOVE LATER
-            
-            jobData.OnModify += JobDataOnOnModify;
-            JobDataOnOnModify();
+            get => _jobData;
+            set
+            {
+                if (_jobData) _jobData.OnModify -= JobDataOnOnModify;
+                _jobData = value;
+                if (_jobData)
+                {
+                    _jobData.ApplicationState = _jobData.testStartState; // for testing purposes REMOVE LATER
+                    _jobData.OnModify += JobDataOnOnModify;
+                    JobDataOnOnModify();
+                }
+            }
         }
 
         private void JobDataOnOnModify()
         {
-            displayedText.text = $"[{Enum.GetName(typeof(JobApplicationState), jobData.ApplicationState)}] {jobData.personName}";
-            switch (jobData.ApplicationState)
+            displayedText.text =
+                $"[{Enum.GetName(typeof(JobApplicationState), _jobData.ApplicationState)}] {_jobData.personName}";
+            switch (_jobData.ApplicationState)
             {
                 case JobApplicationState.Unscreened:
                     buttonText.text = "Review Resume";
@@ -39,8 +47,10 @@ namespace JobApplication
                     buttonText.text = "Interview";
                     break;
             }
-            button.interactable = jobData.ApplicationState is not (JobApplicationState.Rejected or JobApplicationState.PreOA);
-            if (jobData.ApplicationState == JobApplicationState.Rejected)
+
+            button.interactable =
+                _jobData.ApplicationState is not (JobApplicationState.Rejected or JobApplicationState.PreOA);
+            if (_jobData.ApplicationState == JobApplicationState.Rejected)
             {
                 Destroy(button.gameObject);
             }
@@ -48,15 +58,15 @@ namespace JobApplication
 
         public void OnButtonPressed()
         {
-            switch (jobData.ApplicationState)
+            switch (_jobData.ApplicationState)
             {
                 case JobApplicationState.Unscreened:
                     GameObject go = Instantiate(resumeScreenUI);
-                    go.GetComponent<ResumeScreenUI>().DisplayJobApplication(jobData);
+                    go.GetComponent<ResumeScreenUI>().DisplayJobApplication(_jobData);
                     break;
                 case JobApplicationState.NeedInterview:
                     go = Instantiate(interviewUI);
-                    go.GetComponent<InterviewScreen>().Show(jobData);
+                    go.GetComponent<InterviewScreen>().Show(_jobData);
                     break;
             }
         }
