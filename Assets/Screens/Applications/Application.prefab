@@ -495,9 +495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac462e779a44bf098d8e886ae19351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobData: {fileID: 0}
   displayedText: {fileID: 5490140290154007822}
   button: {fileID: 5490140290266562145}
   buttonText: {fileID: 5490140290234335663}
   resumeScreenUI: {fileID: 4233590097957711782, guid: 9cc7a50a120924ed994512ab2d47f014, type: 3}
   interviewUI: {fileID: 8685370724868079483, guid: 99aae9c1ec8bc475e96cb6ba1e904305, type: 3}
+  finalDecisionUI: {fileID: 4527784218876213424, guid: 199367dd987864cecb75c958b33288c8, type: 3}

@@ -13,6 +13,7 @@ namespace JobApplication
         [SerializeField] private TextMeshProUGUI buttonText;
         [SerializeField] private GameObject resumeScreenUI;
         [SerializeField] private GameObject interviewUI;
+        [SerializeField] private GameObject finalDecisionUI;
         private JobApplicationData _jobData;
 
         public JobApplicationData JobData
@@ -101,6 +102,10 @@ namespace JobApplication
                 case JobApplicationState.NeedInterview:
                     go = Instantiate(interviewUI);
                     go.GetComponent<InterviewScreen>().Show(_jobData);
+                    break;
+                case JobApplicationState.NeedDecision:
+                    go = Instantiate(finalDecisionUI);
+                    go.GetComponent<FinalDecisionScreenUI>().Show(_jobData);
                     break;
             }
         }

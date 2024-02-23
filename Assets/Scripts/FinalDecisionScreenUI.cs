@@ -1,36 +1,33 @@
 using JobApplication;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ResumeScreenUI : MonoBehaviour
+public class FinalDecisionScreenUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textField;
     [SerializeField] private TextMeshProUGUI nameField;
+    [SerializeField] private TextMeshProUGUI textField;
     [SerializeField] private TextMeshProUGUI oaField;
-    [SerializeField] private Button[] buttons;
+    [SerializeField] private GameObject resumeScreenPrefab;
 
     private JobApplicationData _jobData;
 
-    public void DisplayJobApplication(JobApplicationData data, bool showButtons = true)
+    public void Show(JobApplicationData data)
     {
         _jobData = data;
         if (_jobData)
         {
             nameField.text = _jobData.personName;
-            textField.text = _jobData.resume;
+            textField.text = "Interviewer Notes: TODO";
             oaField.text = _jobData.ApplicationState == JobApplicationState.Unscreened
                 ? "OA Score: ???"
                 : $"OA Score: {_jobData.onlineAssessmentScore}";
         }
+    }
 
-        if (!showButtons)
-        {
-            foreach (Button b in buttons)
-            {
-                b.gameObject.SetActive(false);
-            }
-        }
+    public void OnViewResume()
+    {
+        GameObject go = Instantiate(resumeScreenPrefab);
+        go.GetComponent<ResumeScreenUI>().DisplayJobApplication(_jobData, false);
     }
 
     public void OnClose()
@@ -38,17 +35,15 @@ public class ResumeScreenUI : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void OnDiscard()
+    public void OnReject()
     {
-        Debug.Log("get f--ked bozo");
-        _jobData.OnResumeScreenDiscard();
+        _jobData.OnFinalReject();
         Destroy(gameObject);
     }
 
-    public void OnSendToNext()
+    public void OnAccept()
     {
-        Debug.Log("ok fine");
-        _jobData.OnResumeScreenSendNext();
+        _jobData.OnFinalAccept();
         Destroy(gameObject);
     }
 }

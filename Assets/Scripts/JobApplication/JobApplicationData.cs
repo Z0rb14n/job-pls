@@ -63,6 +63,16 @@ namespace JobApplication
             ApplicationState = JobApplicationState.Rejected;
         }
 
+        public void OnFinalReject()
+        {
+            ApplicationState = JobApplicationState.Rejected;
+        }
+
+        public void OnFinalAccept()
+        {
+            ApplicationState = JobApplicationState.Accepted;
+        }
+
         public void OnResumeScreenSendNext()
         {
             if (ApplicationState == JobApplicationState.Unscreened)
