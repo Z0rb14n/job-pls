@@ -8,6 +8,7 @@ namespace JobApplication
         PreOtherInterviewer,
         NeedInterview,
         NeedDecision,
-        Rejected
+        Rejected,
+        Accepted
     }
 }

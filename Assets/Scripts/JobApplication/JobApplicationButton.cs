@@ -72,6 +72,10 @@ namespace JobApplication
                     buttonText.text = "Rejected";
                     button.interactable = false;
                     break;
+                case JobApplicationState.Accepted:
+                    buttonText.text = "Accepted";
+                    button.interactable = false;
+                    break;
                 default:
                     buttonText.text = "Rejected";
                     button.interactable = false;

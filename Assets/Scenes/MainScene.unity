@@ -237,6 +237,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - id: OtherInternJoin
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 34369651}
+          m_TargetAssemblyTypeName: Cutscene.StartCutsceneActions, Assembly-CSharp
+          m_MethodName: OtherInternJoin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - id: OtherInternLeave
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 34369651}
+          m_TargetAssemblyTypeName: Cutscene.StartCutsceneActions, Assembly-CSharp
+          m_MethodName: OtherInternLeave
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &34369651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seniorSprite: {fileID: 21300000, guid: 5436d442e13fa48708ce914cf35472ba, type: 3}
   managerSprite: {fileID: 21300000, guid: 95465eefdcc2345edbc88fc558e289e6, type: 3}
+  otherInternSprite: {fileID: 21300000, guid: 63aafe2412cf447bfa124336f3ad6efa, type: 3}
 --- !u!1 &91287515
 GameObject:
   m_ObjectHideFlags: 0
