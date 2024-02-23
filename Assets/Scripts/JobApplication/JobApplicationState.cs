@@ -5,6 +5,7 @@ namespace JobApplication
         Unscreened,
         PreOA,
         PostOA,
+        PreOtherInterviewer,
         NeedInterview,
         NeedDecision,
         Rejected

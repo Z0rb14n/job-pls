@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace JobApplication
 {
@@ -25,9 +26,23 @@ namespace JobApplication
 
         public bool shouldReceiveInterview;
 
-        [NonSerialized] public JobApplicationState ApplicationState;
+        public bool otherInterviewerFirst;
+
+        private JobApplicationState _state = JobApplicationState.Unscreened;
+        [NonSerialized] public int CompletedInterviewRounds;
 
         [NonSerialized] public int DaysBeforeNextStage;
+        [NonSerialized] public int NumOtherInterviewRounds;
+
+        public JobApplicationState ApplicationState
+        {
+            get => _state;
+            set
+            {
+                _state = value;
+                OnModify?.Invoke();
+            }
+        }
 
         private void Awake()
         {
@@ -36,6 +51,80 @@ namespace JobApplication
 
         public event Action OnModify;
 
-        public void SignalModified() => OnModify?.Invoke();
+        public void BeginOtherInterviews()
+        {
+            NumOtherInterviewRounds = Random.Range(1, 7);
+            DaysBeforeNextStage = Random.Range(1, 3);
+            ApplicationState = JobApplicationState.PreOtherInterviewer;
+        }
+
+        public void OnResumeScreenDiscard()
+        {
+            ApplicationState = JobApplicationState.Rejected;
+        }
+
+        public void OnResumeScreenSendNext()
+        {
+            if (ApplicationState == JobApplicationState.Unscreened)
+                ApplicationState = JobApplicationState.PreOA;
+            else
+            {
+                if (otherInterviewerFirst)
+                {
+                    BeginOtherInterviews();
+                }
+                else
+                {
+                    ApplicationState = JobApplicationState.NeedInterview;
+                }
+            }
+
+            DaysBeforeNextStage = Random.Range(0, 3);
+        }
+
+        public void OnFinishInterview(bool manual)
+        {
+            CompletedInterviewRounds++;
+            switch (manual)
+            {
+                case true when !otherInterviewerFirst:
+                    BeginOtherInterviews();
+                    return;
+                case true:
+                    ApplicationState = JobApplicationState.NeedDecision;
+                    break;
+                case false:
+                    NumOtherInterviewRounds--;
+                    if (NumOtherInterviewRounds <= 0)
+                    {
+                        ApplicationState = otherInterviewerFirst
+                            ? JobApplicationState.NeedInterview
+                            : JobApplicationState.NeedDecision;
+                    }
+                    else DaysBeforeNextStage = Random.Range(1, 3);
+
+                    break;
+            }
+
+            OnModify?.Invoke();
+        }
+
+        public void OnDayPass()
+        {
+            if (_state == JobApplicationState.PreOA)
+            {
+                DaysBeforeNextStage--;
+                if (DaysBeforeNextStage <= 0)
+                    ApplicationState = JobApplicationState.PostOA;
+            }
+            else if (ApplicationState == JobApplicationState.PreOtherInterviewer)
+            {
+                DaysBeforeNextStage--;
+                if (DaysBeforeNextStage <= 0)
+                {
+                    OnFinishInterview(false);
+                }
+            }
+        }
     }
 }

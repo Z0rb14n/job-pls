@@ -31,25 +31,54 @@ namespace JobApplication
             }
         }
 
+        private string GetDisplayedStatus()
+        {
+            if (_jobData.ApplicationState is JobApplicationState.PreOtherInterviewer
+                or JobApplicationState.NeedInterview)
+            {
+                return $"Interview: Round {_jobData.CompletedInterviewRounds + 1}";
+            }
+
+            return Enum.GetName(typeof(JobApplicationState), _jobData.ApplicationState);
+        }
+
         private void JobDataOnOnModify()
         {
-            displayedText.text =
-                $"[{Enum.GetName(typeof(JobApplicationState), _jobData.ApplicationState)}] {_jobData.personName}";
+            displayedText.text = $"[{GetDisplayedStatus()}] {_jobData.personName}";
             switch (_jobData.ApplicationState)
             {
+                case JobApplicationState.PostOA:
                 case JobApplicationState.Unscreened:
                     buttonText.text = "Review Resume";
+                    button.interactable = true;
                     break;
                 case JobApplicationState.NeedDecision:
                     buttonText.text = "Make Final Decision";
+                    button.interactable = true;
                     break;
                 case JobApplicationState.NeedInterview:
                     buttonText.text = "Interview";
+                    button.interactable = true;
+                    break;
+                case JobApplicationState.PreOA:
+                    buttonText.text = "Awaiting on OA";
+                    button.interactable = false;
+                    break;
+                case JobApplicationState.PreOtherInterviewer:
+                    buttonText.text = "Awaiting on other interviews";
+                    button.interactable = false;
+                    break;
+                case JobApplicationState.Rejected:
+                    buttonText.text = "Rejected";
+                    button.interactable = false;
+                    break;
+                default:
+                    buttonText.text = "Rejected";
+                    button.interactable = false;
+                    Debug.Log("???? argument out of range");
                     break;
             }
 
-            button.interactable =
-                _jobData.ApplicationState is not (JobApplicationState.Rejected or JobApplicationState.PreOA);
             if (_jobData.ApplicationState == JobApplicationState.Rejected)
             {
                 Destroy(button.gameObject);

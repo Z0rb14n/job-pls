@@ -18,6 +18,7 @@ MonoBehaviour:
   personName: Desparate Person
   resume: "<line-indent=30>\n\u25CF lol\n\u25CF lol\n</line-indent>"
   voice: {fileID: 8300000, guid: 9fdf604c7188942a5b00c268a610f4ee, type: 3}
-  testStartState: 2
+  testStartState: 4
   onlineAssessmentScore: 30
   shouldReceiveInterview: 1
+  otherInterviewerFirst: 0

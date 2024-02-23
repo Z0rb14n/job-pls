@@ -22,3 +22,4 @@ MonoBehaviour:
   testStartState: 0
   onlineAssessmentScore: 5
   shouldReceiveInterview: 0
+  otherInterviewerFirst: 1
