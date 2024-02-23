@@ -24,11 +24,12 @@ Senior: Oh, I think he just joined. Hello! #trigger: OtherInternJoin
 Candidate: Hello!
 Senior: Okay. Tell me about yourself.
 Candidate: Well, I'm an intern.
+Senior: Um, okay...
 Senior: Can you describe your previous responsibilities as an intern?
 Candidate: I don't know - it's my first day on the job. Did I get the right link?
 Senior: Oh, oops, I think you're supposed to be in the other call with the big boss.
 "Candidate": Oh, okay. Sounds good.
-Senior: um... wait... where's the candidate...? #trigger: OtherInternLeave
+Senior: um... wait... so where's the candidate then...? #trigger: OtherInternLeave
 Manager: Okay nice, thanks for shadowing! #trigger: ManagerJoin
 Manager: Anyways, due to cost constraints, we're firing the senior HR guy.
 Senior: WHAT?
