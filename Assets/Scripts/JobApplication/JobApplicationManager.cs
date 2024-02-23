@@ -26,6 +26,18 @@ namespace JobApplication
         public void OnNextDay()
         {
             timeDisplay.ResetTime();
+            foreach (JobApplicationData data in jobs)
+            {
+                if (data.ApplicationState == JobApplicationState.PreOA)
+                {
+                    data.DaysBeforeNextStage--;
+                    if (data.DaysBeforeNextStage <= 0)
+                    {
+                        data.ApplicationState = JobApplicationState.PostOA;
+                        data.SignalModified();
+                    }
+                }
+            }
         }
     }
 }

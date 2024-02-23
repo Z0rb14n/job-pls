@@ -61,6 +61,7 @@ namespace JobApplication
             switch (_jobData.ApplicationState)
             {
                 case JobApplicationState.Unscreened:
+                case JobApplicationState.PostOA:
                     GameObject go = Instantiate(resumeScreenUI);
                     go.GetComponent<ResumeScreenUI>().DisplayJobApplication(_jobData);
                     break;

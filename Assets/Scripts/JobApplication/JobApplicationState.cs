@@ -2,6 +2,11 @@ namespace JobApplication
 {
     public enum JobApplicationState
     {
-        Unscreened, PreOA, NeedInterview, NeedDecision, Rejected
+        Unscreened,
+        PreOA,
+        PostOA,
+        NeedInterview,
+        NeedDecision,
+        Rejected
     }
 }
