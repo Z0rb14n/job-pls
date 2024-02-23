@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: BadApplication
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: a8d37fcc989b34ff28c55261d5eabadf, type: 3}
-  interviewStory: {fileID: 0}
+  interviewStory: {fileID: 4900000, guid: 61914884d269544d2a7c3ee66a7a8a3e, type: 3}
   id: badapp
   personName: AI User
-  resume: "<size=200%><b>AI User</b></size> <line-indent=30>\n\u25CF As an AI language
-    model, I cannot write your resume.\n</line-indent>"
+  resume: "<line-indent=30>\n\u25CF As an AI language model, I cannot write your
+    resume.\n</line-indent>"
   voice: {fileID: 0}
   testStartState: 0
+  onlineAssessmentScore: 5
+  shouldReceiveInterview: 0
+  otherInterviewerFirst: 1

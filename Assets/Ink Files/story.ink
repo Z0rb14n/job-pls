@@ -16,10 +16,20 @@ Manager: In this job market half of our positions are ghost jobs.
 Manager: heh heh heh.
 Manager: Anyways, since it's your first day, you can shadow this senior HR guy!
 Manager: Okay senior, anything you wanna say before we get started?
-Senior: actually, I-
+Senior: actually, i-
 Manager: No? Okay, Let's get started!
 Senior: oh... okay. #trigger: ManagerLeave
-TODO
+Senior: anyways, for interviews, we are supposed to ask the vi-i mean the candidate some basic questions at the start.
+Senior: Oh, I think he just joined. Hello! #trigger: OtherInternJoin
+Candidate: Hello!
+Senior: Okay. Tell me about yourself.
+Candidate: Well, I'm an intern.
+Senior: Um, okay...
+Senior: Can you describe your responsibilities as an intern?
+Candidate: I don't know - it's my first day on the job. Did I get the right link?
+Senior: Oh, oops, I think you're supposed to be in the other call with the big boss.
+"Candidate": Oh, okay. Sounds good.
+Senior: um... wait... so where's the candidate then...? #trigger: OtherInternLeave
 Manager: Okay nice, thanks for shadowing! #trigger: ManagerJoin
 Manager: Anyways, due to cost constraints, we're firing the senior HR guy.
 Senior: WHAT?

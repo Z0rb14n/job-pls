@@ -90,7 +90,7 @@ namespace Interview
                 {
                     DialogueUtils.ExtractSpokenLine(line, out string text, out string speaker);
 
-                    if (speaker != null && _interviewee)
+                    if (speaker != null && _interviewee && _interviewee.voice)
                     {
                         AudioSource.PlayClipAtPoint(_interviewee.voice, Vector3.zero);
                     }
@@ -183,8 +183,7 @@ namespace Interview
         {
             if (_interviewee)
             {
-                _interviewee.ApplicationState = JobApplicationState.NeedDecision;
-                _interviewee.SignalModified();
+                _interviewee.OnFinishInterview(true);
             }
 
             Destroy(gameObject);
