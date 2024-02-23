@@ -25,7 +25,7 @@ Candidate: Hello!
 Senior: Okay. Tell me about yourself.
 Candidate: Well, I'm an intern.
 Senior: Um, okay...
-Senior: Can you describe your previous responsibilities as an intern?
+Senior: Can you describe your responsibilities as an intern?
 Candidate: I don't know - it's my first day on the job. Did I get the right link?
 Senior: Oh, oops, I think you're supposed to be in the other call with the big boss.
 "Candidate": Oh, okay. Sounds good.
