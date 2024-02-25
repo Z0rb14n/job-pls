@@ -6,10 +6,13 @@ LIST GenericOptions = weakness, join, challenge
 + [game_start_cutscene] -> game_start
 + [game_end_cutscene] -> game_end
 + [nepobaby] -> nepo_interview
-+ [Test] -> test_interview
 + [jeffb] -> jeffb_interview
 + [normie] -> normie_interview
 + [intern] -> intern_interview
++ [chinese] -> chinese_interview
++ [influencer] -> influencer_intervew
++ [michael] -> michael_interview
++ [scam] -> scam_interview
 + [generic bill] -> generic_interview("Bill")
 + [generic steve] -> generic_interview("Steve")
 
@@ -20,13 +23,13 @@ Manager: You're gonna be responsible for hiring new folks.
 Manager: ...
 Manager: Well... 'hiring'...
 Manager: In this job market half of our positions are ghost jobs.
-Manager: heh heh heh.
+Manager: Heh heh heh.
 Manager: Anyways, since it's your first day, you can shadow this senior HR guy!
-Manager: Okay senior, anything you wanna say before we get started?
-Senior: actually, i-
+Manager: Okay Senior, anything you wanna say before we get started?
+Senior: Actually, I-
 Manager: No? Okay, Let's get started!
-Senior: oh... okay. #trigger: ManagerLeave
-Senior: anyways, for interviews, we are supposed to ask the vi-i mean the candidate some basic questions at the start.
+Senior: Oh... okay. #trigger: ManagerLeave
+Senior: Anyways, for interviews, we are supposed to ask the victi-I mean, the candidate some basic questions at the start.
 Senior: Oh, I think he just joined. Hello! #trigger: OtherInternJoin
 Candidate: Hello!
 Senior: Okay. Tell me about yourself.
@@ -36,7 +39,7 @@ Senior: Can you describe your responsibilities as an intern?
 Candidate: I don't know - it's my first day on the job. Did I get the right link?
 Senior: Oh, oops, I think you're supposed to be in the other call with the big boss.
 "Candidate": Oh, okay. Sounds good.
-Senior: um... wait... so where's the candidate then...? #trigger: OtherInternLeave
+Senior: Um... Wait... So where's the candidate then...? #trigger: OtherInternLeave
 Manager: Okay nice, thanks for shadowing! #trigger: ManagerJoin
 Manager: Anyways, due to cost constraints, we're firing the senior HR guy.
 Senior: WHAT?
@@ -56,24 +59,24 @@ What did I just sign myself up for?
 === game_end ===
 Manager: Hi! I know you're supposed to be interviewing soon, but we have a new HR guy! #trigger: NewGuyJoin
 Manager: He's going to be shadowing you for today. Anything you wanna say before we get started? #trigger: RollCredits
-actually, I-
+Actually, I-
 Manager: No? Okay, Let's get started!
-oh... okay.
+Oh... okay.
 Manager: HAHA another successful bait and switch.
 Manager: Man, this job market is really nice.
-Manager: "oh boo hoo hoo that's illegal" man back in my day, I had to live off of my weekly allowance of $100/week, which inflation adjusted is...
+Manager: "Oh boo hoo hoo that's illegal" Man back in my day, I had to live off of my weekly allowance of $100/week, which inflation adjusted is...
 Manager: ...
-Manager: huh a lot more than minimum wage now. Well it's their fault for voting for them - wait are they voting age?
-Manager: Besides the point - their stupid zero dollar paychecks are coming out of my $10 million/year salary!
+Manager: Huh a lot more than minimum wage now. Well it's their fault for voting for them - wait, are they voting age?
+Manager: Eh, that's besides the point - their stupid zero dollar paychecks are coming out of my $10 million/year salary!
 Manager: Man, maybe I should have them pay ME to work.
 Manager: Maybe I can convince some university to run a course that'll do free labor for me...
 Manager: ...
-Manager: oh wait i'm still in the call oops #trigger: ManagerLeave
+Manager: Oh wait, I'm still in the call, oops. #trigger: ManagerLeave
 ...
 New Guy: ...
 New Guy: What did I just sign myself up for?
-#trigger: IntervieweeJoin
-Interviewee: Hello! Is my mic on?
+#trigger: CandidateJoin
+Candidate: Hello! Is my mic on?
 Yes. Well, let's get started.
 #end
 -> DONE
@@ -81,23 +84,40 @@ Yes. Well, let's get started.
 
 === nepo_interview ===
 so let's get started, maybe you can start us off by introducing yourself?
-nepo baby: i'm the son of the ceo.
-* is... is that all you have to say?
-* so, can you tell me more about your experience?
-* how would you describe yourself?
-- nepo baby: does anything i say here matter?
-no. cool you got the job, congrats
-#end
--> DONE
-
-
-=== test_interview ===
-So let's get started, maybe you can start us off by introducing yourself?
-Test: wha????
-* Can you tell me more about your experience?
-* how would you describe yourself?
-- test: does anything i say here matter?
-no. You don't get the job lol
+Ned: Hi, I'm Ned Poe, self-made entrepreneur, visionary startup founder, and member of the Forbes 30 Under 30.
+Ned: Also, the son of the CEO of BigCorp. But that's not very important.
+- (questions)
+* What is your biggest weakness?
+Ned: I struggle with public perception. My accomplishments are really great, but for some reason, everyone only wants to talk about who my father is.
+Ned: Can't you see that I made myself the tremendously successful man I am today without relying at all on my family's influence and wealth?
+Ned: When I founded my own business, did people talk about what an incredible feat it was to have bootstrapped such a fantastic innovative company?
+Ned: We have software patents, do you think we'd have patents if we weren't inventing novel software out of the greatness of our minds?
+* Can you elaborate more about your past work experience?
+Ned: Sure, I didn't feel like getting a normal job when I graduated from the best private college money can buy, so I founded a business.
+Ned: It was a SaaS product, Service-as-a-Software or something, I can't quite remember. My CTO took care of all that nerd stuff, I just focused on leadership and vision.
+Ned: Seed venture funding was provided by my father, and after we expanded the business further, he bought the whole thing over.
+Ned: The enterprise was shut down soon after due to cash flow issues, but the fact remains that I am a successful entrepreneur who's sold a company.
+    ** [Question his story.]So, you took a bunch of daddy's money to "found" a business, he bailed you out when you failed, and you still deign to call yourself a self-made entrepreneur?
+    Ned: See, you just don't understand how business works. This is why you're an unpaid HR employee and I'm worth millions of dollars.
+    Ned: But if you're going to insult me like that, this interview is over. 
+    -> end
+    ** [Hold your tongue and continue with the interview.]Wow, very impressive!
+* What would you describe as your biggest strength?
+Ned: I've always been proud of my ability to transform personal setbacks into opportunities for growth.
+Ned: For example, ever since I was young, I've been using only the finest silverware. Silver sterling, truly the best kind you can get.
+Ned: Unfortunately, probably due to my habit of chewing on the spoons, this resulted in me getting heavy metal poisoning from all the silver.
+Ned: But I turned that setback into a plus, and published a best-selling book about my health challenges and recovery.
+Ned: It's titled "My Struggle", and we recently just released a German translation!
+* [End the interview.]Great, thanks for that, Ned. Do you have any questions for me before we end this interview?
+-> end
+- -> questions
+- (end)
+Ned: Honestly, we both know this is just a formality anyway. If you mark me as a weak hire, I'll have my dad fire you.
+Please remember me when you get the job. Can you ask if I can start getting paid?
+Ned: I promise that I will not, I have already forgotten your name.
+Well, it was worth a shot. You'll hear about next steps soon.
+Ned: Thanks, peasant.
+I really hope I still have my job after this. #trigger: CandidateLeave
 #end
 -> DONE
 
@@ -140,7 +160,7 @@ Norm: Hello, my name is Norm L. Mann. I have the kind of degree you're looking f
 Norm: I have the right amount and kind of experience for such a candidate, and I'm lying about it to the same degree that everyone else is.
 Norm: Additionally, I took the time to memorize the empty platitudes which are the BigCorp corporate values, and I'm more than willing to recite them sycophantically if it means I'll get this job.
 - (questions)
-* {questions == 1} Can you be less abstract in your intro?
+* {questions == 1} Can you be less abstract about your introduction?
 Norm: Sure! I am a passionately motivation-driven individual with a results-oriented paradigm for leveraging cross-functions and optimizing cutting-edge challenges. 
 Norm: My proactive approach to dynamic challenges involves thinking dynamically proactively, disrupting solutions of growth workflows and fast-paced environment in a customer-centric mindset.
 Norm: I specialize in solutioning state-of-the-art collaborations while simultaneously blue sky thinking both outside and inside the box (just to cover all the bases). 
@@ -150,7 +170,7 @@ Norm: Obviously.
 * What makes you want to join our company, BigCorp?
 Norm: BigCorp's commitment to excellence fit perfectly with my personal ethos of being excellent in everything I do. 
 Norm: I also align with BigCorp's corporate values of Sustainable Harmony for an Innovative Tomorrow. We could all stand to abide by the values espoused by that wonderful four letter acronym.
-* {questions > 1} [End the interview.] Great, that's all from my side. Do you have any questions for me?
+* {questions > 1} [End the interview.]Great, that's all from my side. Do you have any questions for me?
 Norm: What are our next steps?
 * [We'll let you know by email about next steps.] Our hiring process is highly individualized for each candidate, so it's impossible to know in advance what the entire hiring process will look like.
 * [A couple more rounds of interviews.]That's a very good question. If you've made it through this round, there's a couple more rounds of interviews, and we'll be good to go.
@@ -190,7 +210,7 @@ Michael: It breaks my heart, but the economy has been really tough. You gotta do
 Michael: Well, my wife has been encouraging me to make the switch. Unfortunately, the paper industry isn't all that it's cracked up to be.
 Michael: Plus, my professional reputatation in the paper industry has been somewhat tarnished by a documentary that came out not long ago.
 Michael: I'm hoping that if I change industry, I'll finally be able to put that stuff behind me, you know?
-* {questions > 1} [End the interview.] Great, that's all from my side. Do you have any questions for me?
+* {questions > 1} [End the interview.]Great, that's all from my side. Do you have any questions for me?
 Michael: Nope, thanks for your time. See you later, alligator!
 #end
 -> DONE
@@ -213,13 +233,52 @@ Ska: In that case, I have another money-making opportunity for you. If you inves
 #end
 -> DONE
 
+=== chinese_interview ===
+Hey there, Mr. Liu. Shall we begin?
+刘先生: 你好，我叫刘先生，你能听到我说话吗？
+Um, what?
+刘先生: 这不是抖音的采访吗？
+I'm really sorry, but I don't understand what you're saying.
+刘先生: 操你妈，真是浪费我的时间！
+Well that was awkward. I hope he wasn't too upset. #trigger: CandidateLeave
+#end
+-> DONE
+
+=== influencer_intervew ===
+Influencer: Hey y'all, it's INFLUENCER, welcome to the vlog! Today I'm interviewing with BigCorp, meet my interviewer... what's your name, again?
+Uhhh, are you recording this?
+Influencer: That's a weird name, but okay. So now he's going to ask us for a personal introduction, and if you buy my course, I give you 10 simple tips to always make a good first impression with it.
+Yah
+How about you just assume I'm qualified because I'm really big on X, I have 500 followers and only most of those are bots!
+- (questions)
+* option 1
+* option 2
+* {questions > 1} [End the interview.]Great, that's all from my side. Do you have any questions for me?
+Influencer: Nope, thanks for your consideration and for watching, be sure to like and subscribe, follow me on Instagram for more hot career tips!
+#end
+-> DONE
+- -> questions
+
 === generic_interview(name) ===
 // need a system like this so we can reuse the generic interview but still have each option be single use
 ~ GenericOptions = ()
-Hello {name}, let's get started! Would you like to start us off by introducing yourself?
+{ shuffle: 
+- {name}: Hello! Is my mic on?
+Yes. Well, let's get started.
+- Hello {name}, let's get started! Would you like to start us off by introducing yourself?
+- Hi {name}, thanks for joining me today.
+{name}: Thanks for your consideration!
+Perhaps you can start us off with a brief introduction.
+}
 { shuffle:
-- {name}: Hey, I'm {name}. I'm a fresh grad. RIP me, I guess.
+- {name}: Hey, I'm {name}.
+{name}: I would describe myself as a self-starter, capable of independent work. Which is my way of saying my previous managers have offered little supervision.
 - {name}: Hello, I'm {name}.
+{name}: I have experience working with cross-functional teams, which means that our marketing department sent me an email that one time.
+- {name}: I'm {name}, a fresh grad from a good local university. But I'm still going to manufacture several years of work experience because otherwise I wouldn't even be considered.
+{name}: I thrive in fast-paced environments, which I know means I'm saying I'm okay with being overworked. I just need a job, man.
+- {name}: Hi, I'm {name}, and I'm going to quickly read off what I said I did from my resume because ChatGPT wrote it for me based on the job posting.
+{name}: Unfortunately, I'm struggling somewhat because the formatting tricks I used to make it ATS-legible are really annoying to read as a human.
 }
 Great, I just have a couple standard interview questions for you, if that's alright.
 - (interview)
@@ -246,7 +305,7 @@ Great, I just have a couple standard interview questions for you, if that's alri
 - I had an idiotic boss, and I suspect I'll have one again in the near future.
 }
 ~ GenericOptions += challenge
-+ {LIST_COUNT(GenericOptions) > 1} [End the interview.] Great, that's all from my side. Do you have any questions for me?
++ {LIST_COUNT(GenericOptions) > 1} [End the interview.]Great, that's all from my side. Do you have any questions for me?
 -> questions
 - -> interview
 - (questions)
