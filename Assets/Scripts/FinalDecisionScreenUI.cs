@@ -2,48 +2,39 @@ using JobApplication;
 using TMPro;
 using UnityEngine;
 
-public class FinalDecisionScreenUI : MonoBehaviour
+public class FinalDecisionScreenUI : DecisionScreenUI
 {
-    [SerializeField] private TextMeshProUGUI nameField;
     [SerializeField] private TextMeshProUGUI textField;
     [SerializeField] private TextMeshProUGUI oaField;
     [SerializeField] private GameObject resumeScreenPrefab;
 
-    private JobApplicationData _jobData;
-
-    public void Show(JobApplicationData data)
+    public override void Show(JobApplicationData data)
     {
-        _jobData = data;
-        if (_jobData)
+        base.Show(data);
+        if (JobData)
         {
-            nameField.text = _jobData.personName;
             textField.text = "Interviewer Notes: TODO";
-            oaField.text = _jobData.ApplicationState == JobApplicationState.Unscreened
+            oaField.text = JobData.ApplicationState == JobApplicationState.Unscreened
                 ? "OA Score: ???"
-                : $"OA Score: {_jobData.onlineAssessmentScore}";
+                : $"OA Score: {JobData.onlineAssessmentScore}";
         }
     }
 
     public void OnViewResume()
     {
         GameObject go = Instantiate(resumeScreenPrefab);
-        go.GetComponent<ResumeScreenUI>().DisplayJobApplication(_jobData, false);
+        go.GetComponent<ResumeScreenUI>().DisplayJobApplication(JobData, false);
     }
 
-    public void OnClose()
+    public override void OnReject()
     {
+        JobData.OnFinalReject();
         Destroy(gameObject);
     }
 
-    public void OnReject()
+    public override void OnAccept()
     {
-        _jobData.OnFinalReject();
-        Destroy(gameObject);
-    }
-
-    public void OnAccept()
-    {
-        _jobData.OnFinalAccept();
+        JobData.OnFinalAccept();
         Destroy(gameObject);
     }
 }

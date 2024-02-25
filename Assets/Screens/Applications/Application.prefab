@@ -501,3 +501,4 @@ MonoBehaviour:
   resumeScreenUI: {fileID: 4233590097957711782, guid: 9cc7a50a120924ed994512ab2d47f014, type: 3}
   interviewUI: {fileID: 8685370724868079483, guid: 99aae9c1ec8bc475e96cb6ba1e904305, type: 3}
   finalDecisionUI: {fileID: 4527784218876213424, guid: 199367dd987864cecb75c958b33288c8, type: 3}
+  decisionUI: {fileID: 1158888168267991524, guid: ff34ea584cc184fa2b0717689c4c9e41, type: 3}

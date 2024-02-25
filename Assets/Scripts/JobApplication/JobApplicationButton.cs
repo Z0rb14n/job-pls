@@ -14,6 +14,7 @@ namespace JobApplication
         [SerializeField] private GameObject resumeScreenUI;
         [SerializeField] private GameObject interviewUI;
         [SerializeField] private GameObject finalDecisionUI;
+        [SerializeField] private GameObject decisionUI;
         private JobApplicationData _jobData;
 
         public JobApplicationData JobData
@@ -61,6 +62,10 @@ namespace JobApplication
                     buttonText.text = "Interview";
                     button.interactable = true;
                     break;
+                case JobApplicationState.PostInterview:
+                    buttonText.text = "Make Decision";
+                    button.interactable = true;
+                    break;
                 case JobApplicationState.PreOA:
                     buttonText.text = "Awaiting on OA";
                     button.interactable = false;
@@ -106,6 +111,10 @@ namespace JobApplication
                 case JobApplicationState.NeedDecision:
                     go = Instantiate(finalDecisionUI);
                     go.GetComponent<FinalDecisionScreenUI>().Show(_jobData);
+                    break;
+                case JobApplicationState.PostInterview:
+                    go = Instantiate(decisionUI);
+                    go.GetComponent<DecisionScreenUI>().Show(_jobData);
                     break;
             }
         }
