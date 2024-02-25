@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: a8d37fcc989b34ff28c55261d5eabadf, type: 3}
   interviewStory: {fileID: 4900000, guid: 61914884d269544d2a7c3ee66a7a8a3e, type: 3}
-  id: badapp
+  id: intern
   personName: AI User
   resume: "<line-indent=30>\n\u25CF As an AI language model, I cannot write your
     resume.\n</line-indent>"
