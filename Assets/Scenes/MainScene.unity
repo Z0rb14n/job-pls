@@ -764,6 +764,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7967fcf7c3a140159247706637754bf, type: 2}
   - {fileID: 11400000, guid: 32a57ca6e586e4ee1aac4b8f19ca4d37, type: 2}
   - {fileID: 11400000, guid: d4caa48dded2c4f899e72ef82fcb7157, type: 2}
+  - {fileID: 11400000, guid: 766e1d97223b04d87a698bc6b29a5044, type: 2}
   timeDisplay: {fileID: 302085098}
 --- !u!4 &418112152
 Transform:
@@ -2426,7 +2427,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1028792564}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.469
+  m_Size: 0.47546154
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

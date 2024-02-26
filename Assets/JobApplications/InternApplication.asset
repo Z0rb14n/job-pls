@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78886c1cc534f47a3a12cf2d211643fe, type: 3}
-  m_Name: BadApplication
+  m_Name: InternApplication
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: a8d37fcc989b34ff28c55261d5eabadf, type: 3}
   interviewStory: {fileID: 4900000, guid: 61914884d269544d2a7c3ee66a7a8a3e, type: 3}
-  id: influencer
-  personName: AI User
-  resume: "<line-indent=30>\n\u25CF As an AI language model, I cannot write your
-    resume.\n</line-indent>"
-  voice: {fileID: 0}
-  testStartState: 0
-  onlineAssessmentScore: 5
-  shouldReceiveInterview: 0
-  otherInterviewerFirst: 1
+  id: intern
+  personName: Desparate Person
+  resume: "<line-indent=30>\n\u25CF lol\n\u25CF lol\n</line-indent>"
+  voice: {fileID: 8300000, guid: 9fdf604c7188942a5b00c268a610f4ee, type: 3}
+  testStartState: 4
+  onlineAssessmentScore: 30
+  shouldReceiveInterview: 1
+  otherInterviewerFirst: 0
