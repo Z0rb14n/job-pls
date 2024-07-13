@@ -63,6 +63,17 @@ namespace JobApplication
             ApplicationState = JobApplicationState.Rejected;
         }
 
+        public void OnPostInterviewReject()
+        {
+            ApplicationState = JobApplicationState.Rejected;
+        }
+
+        public void OnPostInterviewProceed()
+        {
+            BeginOtherInterviews();
+            OnModify?.Invoke();
+        }
+
         public void OnFinalReject()
         {
             ApplicationState = JobApplicationState.Rejected;
@@ -98,7 +109,7 @@ namespace JobApplication
             switch (manual)
             {
                 case true when !otherInterviewerFirst:
-                    BeginOtherInterviews();
+                    ApplicationState = JobApplicationState.PostInterview;
                     return;
                 case true:
                     ApplicationState = JobApplicationState.NeedDecision;

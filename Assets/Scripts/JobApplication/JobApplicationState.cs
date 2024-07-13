@@ -7,6 +7,7 @@ namespace JobApplication
         PostOA,
         PreOtherInterviewer,
         NeedInterview,
+        PostInterview,
         NeedDecision,
         Rejected,
         Accepted
