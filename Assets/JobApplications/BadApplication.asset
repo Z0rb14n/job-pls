@@ -16,8 +16,7 @@ MonoBehaviour:
   interviewStory: {fileID: 4900000, guid: 61914884d269544d2a7c3ee66a7a8a3e, type: 3}
   id: influencer
   personName: AI User
-  resume: "<line-indent=30>\n\u25CF As an AI language model, I cannot write your
-    resume.\n</line-indent>"
+  resume: {fileID: 11400000, guid: 7573a84927bb9434aba357e1232178de, type: 2}
   voice: {fileID: 0}
   testStartState: 0
   onlineAssessmentScore: 5

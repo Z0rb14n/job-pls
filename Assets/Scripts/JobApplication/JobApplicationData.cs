@@ -1,4 +1,5 @@
 using System;
+using JobApplication.Resume;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,7 +8,7 @@ namespace JobApplication
     /// <summary>
     /// Data for an individual application.
     /// </summary>
-    [CreateAssetMenu(fileName = "NewApplicationData", menuName = "Job Application")]
+    [CreateAssetMenu(fileName = "NewApplicationData", menuName = "JobApp/Application Data")]
     public class JobApplicationData : ScriptableObject
     {
         public Sprite image;
@@ -16,7 +17,7 @@ namespace JobApplication
         public string id;
         public string personName;
 
-        [TextArea(minLines: 3, maxLines: 20)] public string resume;
+        public ResumeData resume;
 
         public AudioClip voice;
 
