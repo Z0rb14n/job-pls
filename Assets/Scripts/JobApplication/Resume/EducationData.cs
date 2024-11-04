@@ -9,8 +9,7 @@
         public string universityName;
         public string location;
         public string degree;
-        public string startDate;
-        public string endDate;
+        public ResumeDateRange dates;
         public string[] notes;
     }
 }

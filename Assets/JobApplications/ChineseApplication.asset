@@ -16,7 +16,7 @@ MonoBehaviour:
   interviewStory: {fileID: 4900000, guid: 61914884d269544d2a7c3ee66a7a8a3e, type: 3}
   id: chinese
   personName: Mr. Liu
-  resume: {fileID: 11400000, guid: 7573a84927bb9434aba357e1232178de, type: 2}
+  resume: {fileID: 11400000, guid: 06beb16b0d82a7a45bc8818140f1218e, type: 2}
   voice: {fileID: 0}
   testStartState: 0
   onlineAssessmentScore: 40

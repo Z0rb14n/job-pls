@@ -34,7 +34,7 @@ namespace JobApplication.Resume
             companyName.SetText(jobExpData.companyName);
             companyLocation.SetText(jobExpData.location);
             jobTitle.SetText(jobExpData.title);
-            date.SetText(jobExpData.startDate + " - " + jobExpData.endDate);
+            date.SetText(jobExpData.dates.ToString());
             ObjectUtil.EnsureLength(notesLoc, jobExpData.bulletPoints.Length, pointFormPrefab);
             for (int i = 0; i < jobExpData.bulletPoints.Length; i++)
             {

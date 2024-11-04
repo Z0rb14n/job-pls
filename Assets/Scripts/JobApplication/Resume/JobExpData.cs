@@ -9,8 +9,7 @@
         public string companyName;
         public string location;
         public string title;
-        public string startDate;
-        public string endDate;
+        public ResumeDateRange dates;
         public string[] bulletPoints;
     }
 }

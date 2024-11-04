@@ -34,7 +34,7 @@ namespace JobApplication.Resume
             uniName.SetText(educationData.universityName);
             uniLoc.SetText(educationData.location);
             degreeDesc.SetText(educationData.degree);
-            dateLoc.SetText(educationData.startDate + "-" + educationData.endDate);
+            dateLoc.SetText(educationData.dates.ToString());
             ObjectUtil.EnsureLength(notesLoc, educationData.notes.Length, pointFormPrefab);
             for (int i = 0; i < educationData.notes.Length; i++)
             {

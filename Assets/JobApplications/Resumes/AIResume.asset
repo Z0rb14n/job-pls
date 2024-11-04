@@ -24,6 +24,10 @@ MonoBehaviour:
     location: As an AI language model, I am unable to provide locations for "good
       companies".
     title: 'Sure! Some titles I would include are: "'
+    dates:
+      startDate: Certainly! A start date I would use would be "October 2024", as
+        it would show
+      endDate: Definitely! An end date I would use would be "Present", as
     startDate: Certainly! A start date I would use would be "October 2024", as it
       would show
     endDate: Definitely! An end date I would use would be "Present", as
@@ -39,6 +43,9 @@ MonoBehaviour:
     degree: Certainly! A reputable degree would be "Bachelor of Science, Honours
       in Computer Science, Statistics, Math, Quantum Physics, Physics, Biology, Economics,
       Business, Chemistry, Psychology...
+    dates:
+      startDate: Too many requests in 1 hour. Try again later.
+      endDate: Too many requests in 1 hour. Try again later.
     startDate: Too many requests in 1 hour. Try again later.
     endDate: Too many requests in 1 hour. Try again later.
     notes:
