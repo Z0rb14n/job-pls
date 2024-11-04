@@ -1,14 +1,16 @@
 using JobApplication;
+using JobApplication.Resume;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Util;
 
 public class ResumeScreenUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textField;
     [SerializeField] private TextMeshProUGUI nameField;
     [SerializeField] private TextMeshProUGUI oaField;
     [SerializeField] private Button[] buttons;
+    [SerializeField] private RectTransform placeForResumes;
 
     private JobApplicationData _jobData;
 
@@ -18,7 +20,9 @@ public class ResumeScreenUI : MonoBehaviour
         if (_jobData)
         {
             nameField.text = _jobData.personName;
-            textField.text = _jobData.resume;
+            ObjectUtil.EnsureLength(placeForResumes, 0, data.resume.template);
+            GameObject go = Instantiate(data.resume.template, placeForResumes);
+            go.GetComponent<AbstractResumeRenderer>().Display(data.resume);
             oaField.text = _jobData.ApplicationState == JobApplicationState.Unscreened
                 ? "OA Score: ???"
                 : $"OA Score: {_jobData.onlineAssessmentScore}";

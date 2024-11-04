@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb11bd759cb4cf7bdaaf282bf77d718, type: 3}
+  m_Name: AIResume
+  m_EditorClassIdentifier: 
+  writtenName: Definitely Not a Robot
+  subtitle: As an AI language model, I am unable to perform this request.
+  description: "As an AI language model, I am unable to perform this request. While
+    I can provide tips and guidance on creating a resume, I\u2019m unable to draft
+    one directly for you. However, I can help you brainstorm sections, suggest wording,
+    and offer advice on formatting!"
+  experience:
+  - companyName: As an AI language model, I am unable to list a company name for
+      your resume.
+    location: As an AI language model, I am unable to provide locations for "good
+      companies".
+    title: 'Sure! Some titles I would include are: "'
+    startDate: Certainly! A start date I would use would be "October 2024", as it
+      would show
+    endDate: Definitely! An end date I would use would be "Present", as
+    bulletPoints:
+    - As an AI language model, I am unable to provide bullet points of your work
+      as I am a robot. What did you expect? What am I, your personal maid? You've
+      been on the internet too much.
+  education:
+  - universityName: As an AI language model, I am unable to provide information as
+      to the companies you've worked for.
+    location: As an AI language model, I am unable to provide locations for "colleges
+      that aren't diploma mills".
+    degree: Certainly! A reputable degree would be "Bachelor of Science, Honours
+      in Computer Science, Statistics, Math, Quantum Physics, Physics, Biology, Economics,
+      Business, Chemistry, Psychology...
+    startDate: Too many requests in 1 hour. Try again later.
+    endDate: Too many requests in 1 hour. Try again later.
+    notes:
+    - Too many requests in 1 hour. Ttry again later.
+    - Too many requests in 1 hour. Try again later.
+  skills:
+  - Prompt Engineering
+  template: {fileID: 5899582489947097377, guid: 691d27b8f2cfb044f8926a6d47725a30, type: 3}
